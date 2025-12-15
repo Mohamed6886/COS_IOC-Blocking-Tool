@@ -13,18 +13,13 @@ from .navigation import (
     apply_monitor_filter, change_batch,
 )
 """
-    Main public entry point.
-
+Main public entry point
     - base_url: FMC base URL (e.g. 'https://fmc5.example.gov')
     - max_count: maximum number of IOCs to block in this run
-    - dry_run: if True, only simulates the flips (for CLI debugging)
+    - dry_run: if True, only simulates/highlights IOCs to block
     - gui_logger: optional logging callback used by the GUI
-    - throttle: pacing between UI actions
-    - refresh_every: periodic reload after this many changes
+"""
 
-    Returns:
-        total_changed (int)
-    """
 # -------------------- Public API --------------------
 def run_blocker(base_url: str,
                 max_count: int,
@@ -91,7 +86,8 @@ def run_blocker(base_url: str,
                 # Finished a clean batch → reload for next page of rows
                 reload_grid(page)
 
-            # Final screenshot
+            # Final reload + screenshot
+            reload_grid(page)
             screenshot(page, out_dir, "final")
 
             _log(
@@ -99,7 +95,7 @@ def run_blocker(base_url: str,
                 f"{total_changed} (target {max_count})",
                 gui_logger,
             )
-            return total_changed
+            return 0
 
         finally:
             context.close()

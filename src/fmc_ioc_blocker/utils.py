@@ -14,11 +14,10 @@ SelectorRef = Union[str, dict]
 
 def _log(msg: str, gui_logger: GuiLogger = None) -> None:
     """
-    Log either to the GUI callback (if provided) or stdout.
+    Log to the GUI callback .
     """
     if gui_logger:
         gui_logger(msg)
-    print(msg)
 
 
 # ============================================================
