@@ -5,7 +5,7 @@ a = Analysis(
     ['gui_runner.py'],
     pathex=[],
     binaries=[],
-    datas=[('src', 'src'), ('browsers', 'ms-playwright')],
+    datas=[('src', 'src')],
     hiddenimports=['playwright.sync_api', 'dotenv'],
     hookspath=[],
     hooksconfig={},
