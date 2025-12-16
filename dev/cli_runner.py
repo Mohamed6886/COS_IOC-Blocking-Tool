@@ -1,10 +1,10 @@
 """
-How to run:
+Helpful notes:
  - cd FMC-Core
  - (playwright inspector) $env:PWDEBUG=1
  - playwright codegen https://fmc5.ci.stockton.ca.us/ui/login
  - python -m dev.cli_runner --env FMC5 --max 50 --dry-run
- - python -m PyInstaller --onefile --windowed --name "FMC Tool" --add-data "src;src" --add-data "browsers;ms-playwright" --hidden-import playwright.sync_api --hidden-import dotenv gui_runner.py
+ - python -m PyInstaller --onefile --windowed --name "FMC Tool" --add-data "src;src" --hidden-import playwright.sync_api --hidden-import dotenv gui_runner.py
 """
 import argparse
 
