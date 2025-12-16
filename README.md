@@ -24,11 +24,10 @@ After extraction, the folder will contain the following:
 
 ### `FMC Tool.exe`
 The executable used to launch and run the FMC IOC Blocking Tool.  
-No additional setup is required to run the tool.
 
 ### `.env`
 Configuration file used to store FMC environment URLs (e.g., FMC5 and FMC3).  
-This file can be updated if FMC URLs change, without modifying any source code.
+This file can be updated if FMC URLs change.
 
 ### `\browsers` folder
 Contains a Chromium browser used by Playwright for automation.
@@ -89,3 +88,4 @@ These artifacts are intended for auditing, troubleshooting, and validation of IO
 ## Notes
 - It is recommended that **only one instance of the tool be run at a time** to avoid unexpected behavior.
 - The source code is maintained in this repository to support updates, improvements, and onboarding of future interns.
+
