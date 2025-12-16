@@ -2,7 +2,7 @@
 **Author:** Mohamed Abdallah
 
 ## Overview
-The **FMC IOC Blocking Tool** is a desktop automation tool designed to assist IT Cybersecurity team at COS in efficiently blocking Indicators of Compromise (IOCs) in FMC.
+The **FMC IOC Blocking Tool** is a desktop automation tool designed to assist COS IT Cybersecurity team in efficiently blocking Indicators of Compromise (IOCs) in FMC.
 The tool uses Playwright to automate browser interactions.
 
 ---
@@ -22,15 +22,15 @@ The tool uses Playwright to automate browser interactions.
 ## Included Files Overview
 After extraction, the folder will contain the following:
 
-### **FMC Tool.exe**
+### `FMC Tool.exe`
 The executable used to launch and run the FMC IOC Blocking Tool.  
 No additional setup is required to run the tool.
 
-### **.env**
+### `.env`
 Configuration file used to store FMC environment URLs (e.g., FMC5 and FMC3).  
 This file can be updated if FMC URLs change, without modifying any source code.
 
-### **browsers/** folder
+### `\browsers` folder
 Contains a Chromium browser used by Playwright for automation.
 
 If this folder is not present, Playwright will automatically fall back to its default browser installation location:
@@ -40,7 +40,7 @@ If this folder is not present, Playwright will automatically fall back to its de
 ---
 
 ## Launching the Tool
-1. Double-click **FMC Tool.exe**.
+1. Double-click `FMC Tool.exe`.
 2. The FMC Tool graphical interface will appear.
 
 <img width="975" height="545" alt="FMC Tool Interface" src="https://github.com/user-attachments/assets/8effc946-f4c0-4dc3-8766-72f9eb60ea73" />
@@ -75,7 +75,17 @@ No further user interaction is required.
 
 ---
 
+## Run Artifacts
+When you run the tool for the first time, it creates the folder **`\run_artifacts`** in the same directory as **`FMC Tool.exe`** if it doesn't already exist.
+
+During each execution, the tool creates **timestamped subfolders** that contain:
+- Screenshots captured during execution (before filtering, after filtering, and upon completion)
+- Screenshots generated when an error is encountered
+
+These artifacts are intended for auditing, troubleshooting, and validation of IOC blocking activity.
+
+---
+
 ## Notes
 - It is recommended that **only one instance of the tool be run at a time** to avoid unexpected behavior.
 - The source code is maintained in this repository to support updates, improvements, and onboarding of future interns.
-
