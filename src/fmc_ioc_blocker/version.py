@@ -1,6 +1,6 @@
 import requests
 
-APP_VERSION = "v1.1"
+APP_VERSION = "v1.1.0"
 
 GITHUB_LATEST_RELEASE_URL = (
     "https://api.github.com/repos/Mohamed6886/COS_IOC-Blocking-Tool/releases/latest"
