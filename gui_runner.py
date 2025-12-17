@@ -2,6 +2,7 @@ import threading
 import tkinter as tk
 from tkinter import ttk, messagebox
 
+from src.fmc_ioc_blocker.version import check_for_update, APP_VERSION
 from src.fmc_ioc_blocker import run_blocker, read_env_urls
 
 
@@ -12,17 +13,35 @@ class GuiApp:
         self.fmc5_url, self.fmc3_url = read_env_urls()
 
         # ------------- Layout -------------
-
         main = ttk.Frame(root, padding=12)
         main.grid(row=0, column=0, sticky="nsew")
 
         root.rowconfigure(0, weight=1)
         root.columnconfigure(0, weight=1)
 
+        # -------- Version / Update Check --------
+        is_update, latest = check_for_update()
+        if is_update:
+            messagebox.showinfo(
+                "Update Available",
+                f"You are running {APP_VERSION}\n"
+                f"Latest version: {latest}\n\n"
+                "Please download the latest release from GitHub → Releases."
+            )
+
         # Title
         ttk.Label(main, text="FMC IOC Blocking Tool", font=("Segoe UI", 12, "bold")).grid(
             row=0, column=0, columnspan=2, sticky="w", pady=(0, 8)
         )
+
+        # Version
+        ttk.Label(
+            main,
+            text=f"Version: {APP_VERSION}",
+            font=("Segoe UI", 9),
+            foreground="gray"
+        ).grid(row=0, column=1, sticky="e")
+
 
         # Environment
         ttk.Label(main, text="Environment:").grid(row=1, column=0, sticky="e", padx=(0, 8))
