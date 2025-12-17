@@ -61,6 +61,7 @@ def reload_grid(page: Page) -> bool:
     """
     reload_button = page.locator("#filterBar").get_by_role("button")
     reload_button.click()
+    wait_visible(page, SELECTORS["grid"])
 
     # Clear hover tooltips
     page.keyboard.press("Escape")

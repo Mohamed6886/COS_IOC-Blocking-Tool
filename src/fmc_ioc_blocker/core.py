@@ -6,7 +6,7 @@ from .utils import (
     _log,
     screenshot,
     count_visible_monitors,
-    reload_grid, wait_visible,
+    reload_grid,
 )
 from .config import make_artifacts_dir
 from .navigation import (
@@ -90,7 +90,6 @@ def run_blocker(base_url: str,
 
             # Final reload + screenshot
             reload_grid(page)
-            wait_visible(page, SELECTORS["grid"])
             screenshot(page, out_dir, "final")
 
             _log(
